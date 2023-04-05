@@ -1,0 +1,137 @@
+# all_code
+# МОДУЛЬ 1 variables.py
+# Объявляем переменные для объекта "еда"
+name = "пицца"           # тип строка
+calories = 1200          # тип целое число
+is_vegan = False         # тип логический
+is_spicy = True          # тип логический
+
+# Выводим тип каждой переменной
+print(type(name))
+print(type(calories))
+print(type(is_vegan))
+print(type(is_spicy))
+
+# Объявляем переменные для объекта "еда"
+name = "пицца"           # тип строка
+calories = 1200          # тип целое число
+is_vegan = False         # тип логический
+is_spicy = True          # тип логический
+
+# Выводим тип каждой переменной
+print(type(name))
+print(type(calories))
+print(type(is_vegan))
+print(type(is_spicy))
+
+# Объявляем переменные для объекта "игрушка"
+name = "медведь"         # тип строка
+age_range = "3-6 лет"    # тип строка
+price = 500              # тип целое число
+is_stuffed = True        # тип логический
+
+# Выводим тип каждой переменной
+print(type(name))
+print(type(age_range))
+print(type(price))
+print(type(is_stuffed))
+
+# МОДУЛЬ 2
+born = int(input('Год рождения А.С Пушкина?:'))
+if born == 1799:
+   print('Верно')
+else:
+   print('Неверно')
+
+# МОДУЛЬ 3
+born = int(input('Год рождения А.С Пушкина?:'))
+if born == 1799:
+   print('Верно')
+   birthday = str(input('день рождения?:'))
+   if  birthday == '6 июня' or birthday == '06.06':
+       print('Верно')
+   else:
+       print('Неверный день рождения')
+else:
+   print('Неверно')
+
+# МОДУЛЬ 4
+born = 1799 # задаем год рождения
+a = None    # инициализируем переменную введенного пользователем года
+while a != born:
+   a = int(input("Год рождения А.С Пушкина?: "))
+   if a == born:
+       print("Верно")
+
+
+# МОДУЛЬ 5
+born = 1799        # задаем год рождения
+birthday = '06.06' # задаем день рождения
+a = None    # инициализируем переменную введенного пользователем года
+b = None    # инициализируем переменную введенного пользователем день рождения
+while a != born:
+   a = int(input("Год рождения А.С Пушкина?: "))
+   if a == born:
+       while b != birthday:
+           b = str(input('день рождения?: '))
+       print("Верно")
+
+# МОДУЛЬ 6
+# Билл Гейтс - 28 октября 1955 года
+# Стив Джобс - 24 февраля 1955 года
+# Марк Цукерберг - 14 мая 1984 года
+# Элон Маск - 28 июня 1971 года
+# Шон Паркер - 3 декабря 1979 года
+
+# переменные 5 известных людей и их год рождения
+Bill_Gates = 1955
+Steve_Jobs = 1955
+Mark_Zuckerberg = 1984
+Elon_Musk = 1971
+Sean_Parker = 1979
+
+play_end = None
+
+try_count = 0            # количество правильных ответов
+false_count = 0          # количество ошибок
+proc_count = 0           # процент правильных ответов
+proc_false_count = 0     # процент неправильных ответов
+
+play_end = input('Начать игру сначала? Да/Нет?: ')
+while play_end == 'Да':
+   ques_1 = int(input('Год рождения Билл Гейтс?: ')) # Билл Гейтс 1955
+   if ques_1 == Bill_Gates:
+       try_count += 1
+   else:
+       false_count += 1
+
+   ques_2 = int(input('Год рождения Стив Джобс?: ')) # Стив Джобс 1955
+   if ques_2 == Steve_Jobs:
+       try_count += 1
+   else:
+       false_count += 1
+
+   ques_3 = int(input('Год рождения Марк Цукерберг?: ')) # Марк Цукерберг 1984
+   if ques_3 == Mark_Zuckerberg:
+       try_count += 1
+   else:
+       false_count += 1
+
+   ques_4 = int(input('Год рождения Элон Маск?: ')) # Элон Маск 1971
+   if ques_4 == Elon_Musk:
+       try_count += 1
+   else:
+       false_count += 1
+
+   ques_5 = int(input('Год рождения Шон Паркер?: ')) # Шон Паркер 1979
+   if ques_5 == Sean_Parker:
+       try_count += 1
+   else:
+       false_count += 1
+   print()
+   print('Количество правильных ответов:', try_count)
+   print('Количество ошибок:', false_count)
+   print('Процент правильных ответов:', try_count * 100/5, '%')
+   print('Процент неправильных ответов:', false_count * 100/5, '%')
+   print()
+   play_end = input('Начать игру сначала? Да/Нет?: ')
