@@ -1,0 +1,192 @@
+Методы списка, которые чаще всего используются:
+append(): добавление элемента в конец списка
+extend(): добавление нескольких элементов в конец списка
+pop(): удаление и возврат последнего элемента списка
+index(): возвращает индекс первого элемента, который равен заданному значению
+sort(): сортирует элементы списка в порядке возрастания или убывания
+Примеры использования:
+
+append(): myList.append(5)
+extend(): myList.extend([1, 2, 3])
+pop(): lastItem = myList.pop()
+index(): index = myList.index(3)
+sort(): myList.sort(reverse=True)
+Методы словаря, которые чаще всего используются:
+get(): возвращает значение по ключу, если ключ существует, иначе возвращает значение по умолчанию
+keys(): возвращает список всех ключей в словаре
+values(): возвращает список всех значений в словаре
+items(): возвращает список кортежей, каждый из которых содержит ключ и значение
+update(): обновляет словарь парами ключ-значение из другого словаря или последовательности кортежей
+Примеры использования:
+
+get(): value = myDict.get('key', defaultValue)
+keys(): keyList = list(myDict.keys())
+values(): valueList = list(myDict.values())
+items(): itemList = list(myDict.items())
+update(): myDict.update({'key1': 'value1', 'key2': 'value2'})
+Методы множеств, которые чаще всего используются:
+add(): добавление элемента в множество
+remove(): удаление элемента из множества
+union(): возвращает новое множество, являющееся объединением двух множеств
+intersection(): возвращает новое множество, являющееся пересечением двух множеств
+difference(): возвращает новое множество, являющееся разностью двух множеств
+Примеры использования:
+
+add(): mySet.add(3)
+remove(): mySet.remove(2)
+union(): newSet = set1.union(set2)
+intersection(): newSet = set1.intersection(set2)
+difference(): newSet = set1.difference(set2)
+Методы строк, которые чаще всего используются:
+lower(): преобразование строки в нижний регистр
+upper(): преобразование строки в верхний регистр
+split(): разбиение строки на список подстрок по заданному разделителю
+join(): объединение списка строк в одну строку, используя заданный разделитель
+strip(): удаление начальных и конечных пробельных символов из строки
+Примеры использования:
+
+lower(): newStr = myStr.lower()
+upper(): newStr = myStr.upper()
+split(): strList = myStr.split(',')
+join(): newStr = ','.join(strList)
+strip(): newStr = myStr
+
+
+# модуль 1seq.py
+list = []
+list.append(int(input('Введите 1 элемент: ')))
+list.append(int(input('Введите 2 элемент: ')))
+list.append(int(input('Введите 3 элемент: ')))
+list.sort()
+print(list)
+
+
+# модуль 2seq.py
+import re
+user_input = input('Введите цифры, разделенные запятой, точкой с запятой или слэшем: ')
+# Разделение строки на элементы списка по заданным разделителям
+my_list = re.split(r'[,;\/]', user_input)
+# Преобразование элементов списка в целочисленный тип
+my_list = list(map(int, my_list))
+# Сортировка списка
+my_list.sort()
+# Удаление повторяющихся значений
+for value in my_list:
+    if my_list.count(value) > 1:
+        my_list.remove(value)
+print(my_list)
+
+# модуль 3seq.py
+import re
+user_input_1 = input('Элементы 1-го списка: ')
+# Разделение строки на элементы списка по заданным разделителям
+my_list_1 = re.split(r'[,;\/]', user_input_1)
+# Преобразование элементов списка в целочисленный тип
+my_list_1 = list(map(int, my_list_1))
+# Сортировка списка
+my_list_1.sort()
+# Удаление повторяющихся значений
+for value in my_list_1:
+    if my_list_1.count(value) > 1:
+        my_list_1.remove(value)
+
+user_input_2 = input('Элементы 2-го списка: ')
+# Разделение строки на элементы списка по заданным разделителям
+my_list_2 = re.split(r'[,;\/]', user_input_2)
+# Преобразование элементов списка в целочисленный тип
+my_list_2 = list(map(int, my_list_2))
+# Сортировка списка
+my_list_2.sort()
+# Удаление повторяющихся значений
+for value in my_list_2:
+    if my_list_2.count(value) > 1:
+        my_list_2.remove(value)
+print(my_list_1)
+print(my_list_2)
+
+# Преобразование списков в множества
+set_1 = set(my_list_1)
+set_2 = set(my_list_2)
+
+# Объединение множеств
+union_set = set_1.union(set_2)
+
+# Преобразование множества в список
+result_list = list(union_set)
+# Сортировка списка
+result_list.sort()
+
+print(result_list)
+
+# модуль 4victory.py.
+import random
+
+# Словарь известных людей и их годов рождения
+people = {
+    'Билл Гейтс': '28.10.1955',
+    'Стив Джобс': '24.02.1955',
+    'Марк Цукерберг': '14.05.1984',
+    'Элон Маск': '28.06.1971',
+    'Шон Паркер': '03.12.1979',
+    'Дональд Трамп': '14.06.1946',
+    'Александр Лукашенко': '30.08.1954',
+    'Владимир Путин': '07.10.1952',
+    'Ким Чен Ын': '08.01.1983',
+    'Ангела Меркель': '17.07.1954'
+}
+
+# Выбираем 5 случайных людей
+random_people = random.sample(list(people.keys()), 5)
+
+# Заполняем годы рождения для выбранных людей
+for person in random_people:
+    birth_year = people[person]
+    user_answer = input(f'Введите дату рождения {person} в формате dd.mm.yyyy: ')
+    people[person] = user_answer
+
+# Проверяем ответы пользователя
+correct_answers = 0
+wrong_answers = 0
+
+for person in random_people:
+    birth_date = people[person]
+    day, month, year = birth_date.split('.')
+    month_names = {
+        '01': 'января',
+        '02': 'февраля',
+        '03': 'марта',
+        '04': 'апреля',
+        '05': 'мая',
+        '06': 'июня',
+        '07': 'июля',
+        '08': 'августа',
+        '09': 'сентября',
+        '10': 'октября',
+        '11': 'ноября',
+        '12': 'декабря',
+    }
+    month_name = month_names[month]
+    user_answer = input(
+        f'{person} родился {day} {month_name} {year} года. Введите дату рождения в формате dd.mm.yyyy: ')
+    if birth_date == user_answer:
+        print('Правильно!')
+        correct_answers += 1
+    else:
+        print(f'Неправильно! Правильный ответ: {person} родился {day} {month_name} {year} года')
+        wrong_answers += 1
+
+# Выводим результаты игры
+print()
+print('Количество правильных ответов:', correct_answers)
+print('Количество ошибок:', wrong_answers)
+print('Процент правильных ответов:', correct_answers * 100 / 5, '%')
+print('Процент неправильных ответов:', wrong_answers * 100 / 5, '%')
+print()
+
+# Предлагаем начать игру заново
+play_again = input('Хотите начать игру заново? Да/Нет: ')
+if play_again.lower() == 'да':
+    # Начинаем игру заново
+    pass
+else:
+    print('Спасибо за игру!')
