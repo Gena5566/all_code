@@ -1,0 +1,162 @@
+# МОДУЛЬ 1. файл myfunctions.py
+def simple_separator():
+    """
+    Функция создает красивый резделитель из 10-и звездочек (**********)
+    :return: **********
+    """
+    separator = "*" * 10
+    return separator
+result = simple_separator()
+print(result)
+
+def long_separator(count):
+    """
+    Функция создает разделитель из звездочек число которых можно регулировать параметром count
+    :param count: количество звездочек
+    :return: строка разделитель
+    """
+    separator = "*" * count
+    return separator
+print(long_separator(3) == '***')  # True
+print(long_separator(4) == '****')  # True
+
+def separator(simbol, count):
+    """
+    Функция создает разделитель из любых символов любого количества
+    :param simbol: символ разделителя
+    :param count: количество повторений
+    :return: строка разделитель
+    """
+    separator = simbol * count
+    return separator
+print(separator('-', 10) == '----------')  # True
+print(separator('#', 5) == '#####')  # True
+
+def hello_world():
+    """
+    Функция печатает Hello World в формате:
+    **********
+    Hello World!
+    ##########
+    :return: None
+    """
+    separator1 = '*' * 10
+    separator2 = '#' * 10
+    print(separator1)
+    print('Hello World!')
+    print(separator2)
+hello_world()
+
+def hello_who(who='World'):
+    """
+    Функция печатает приветствие в красивом формате
+    **********
+    Hello {who}!
+    ##########
+    :param who: кого мы приветствуем, по умолчанию World
+    :return: None
+    """
+    separator1 = '*' * 10
+    separator2 = '#' * 10
+    print(separator1)
+    print('Hello {}!'.format(who))
+    print(separator2)
+
+hello_who()
+hello_who('Max')
+hello_who('Kate')
+
+def pow_many(power, *args):
+    result = sum(args)
+    return result ** power
+
+print(pow_many(1, 1, 2) == 3)  # True -> (1 + 2)**1 == 3
+print(pow_many(1, 2, 3) == 5)  # True -> (2 + 3)**1 == 5
+print(pow_many(2, 1, 1) == 4)  # True -> (1 + 1)**2 == 4
+print(pow_many(3, 2) == 8)  # True -> 2**3 == 8
+print(pow_many(2, 1, 2, 3, 4) == 100)  # True -> (1 + 2 + 3 + 4)**2 == 10**2 == 100
+
+
+def print_key_val(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_key_val(name='Max', age=21)
+print_key_val(animal='Cat', is_animal=True)
+
+
+def my_filter(iterable, function):
+    result = []
+    for item in iterable:
+        if function(item):
+            result.append(item)
+    return result
+print(my_filter([1, 2, 3, 4, 5], lambda x: x > 3) == [4, 5])  # True
+print(my_filter([1, 2, 3, 4, 5], lambda x: x == 2) == [2])  # True
+print(my_filter([1, 2, 3, 4, 5], lambda x: x != 3) == [1, 2, 4, 5])  # True
+print(my_filter(['a', 'b', 'c', 'd'], lambda x: x in 'abba') == ['a', 'b'])  # True
+
+МОДУЛЬ 2 файл borndayforewer.py
+
+def get_pushkin_year():
+    year = input('Введите год рождения А.С.Пушкина: ')
+    while year != '1799':
+        print("Неверно!")
+        year = input('Введите год рождения А.С.Пушкина: ')
+    return True
+
+def get_pushkin_day():
+    day = input('Введите день рождения Пушкин: ')
+    while day != '6':
+        print("Неверно!")
+        day = input('В какой день июня родился Пушкин? ')
+    return True
+
+get_pushkin_year()
+get_pushkin_day()
+print('Верно')
+
+МОДУЛЬ 3 файл use_functions.py
+balance = 0
+history = []
+
+def add_money():
+    global balance
+    amount = float(input('Введите сумму для пополнения счета: '))
+    balance += amount
+    print(f'Баланс пополнен на {amount}. Текущий баланс: {balance}')
+
+def buy_item():
+    global balance, history
+    amount = float(input('Введите сумму покупки: '))
+    if amount > balance:
+        print('На счету недостаточно денег!')
+        return
+    item = input('Введите название покупки: ')
+    balance -= amount
+    history.append((item, amount))
+    print(f'Покупка "{item}" на сумму {amount} успешно проведена. Текущий баланс: {balance}')
+
+def show_history():
+    global history
+    print('История покупок:')
+    for item, amount in history:
+        print(f'{item}: {amount}')
+
+while True:
+    print('1. Пополнение счета')
+    print('2. Покупка')
+    print('3. История покупок')
+    print('4. Выход')
+
+    choice = input('Выберите пункт меню: ')
+    if choice == '1':
+        add_money()
+    elif choice == '2':
+        buy_item()
+    elif choice == '3':
+        show_history()
+    elif choice == '4':
+        break
+    else:
+        print('Неверный пункт меню')
